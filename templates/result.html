@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nutrilens</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <nav class="bg-gray-800 text-white py-4">
+        <ul class="flex justify-center">
+            <li class="text-2xl">Nutrilens</li>
+        </ul>
+    </nav>
+
+    <button onclick="window.location.href = '/';" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 ml-4">Home</button>
+
+    <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold mb-4">Result</h2>
+            <img src="data:image/jpeg;base64,{{ image }}" alt="food image" class="mx-auto rounded-lg shadow-md mb-4">
+            <p id="food" class="text-xl sm:text-2xl font-semibold text-fuchsia">Your Food is {{food}}</p>
+        </div>
+    </div>
+
+    <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+        <h3 class="text-2xl font-bold mb-4">Nutrients in {{food}}:</h3>
+        <div class="overflow-x-auto">
+            <table class="min-w-max w-full bg-white rounded-lg shadow-md">
+                <thead>
+                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        <th class="py-3 px-6 text-left">Nutrient Name</th>
+                        <th class="py-3 px-6 text-left">Value</th>
+                        <th class="py-3 px-6 text-left">Unit</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                    {% for item in data['foods'][0]['foodNutrients'] %}
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left whitespace-nowrap">{{ item['nutrientName']}}</td>
+                        <td class="py-3 px-6 text-left">{{ item['value']}}</td>
+                        <td class="py-3 px-6 text-left">{{ item['unitName']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

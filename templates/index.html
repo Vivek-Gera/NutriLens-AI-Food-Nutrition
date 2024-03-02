@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nutrilens</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body class="bg-gray-100 text-hotpink">
+
+    <nav class="bg-gray-800 text-white text-center py-4">
+        <div class="flex justify-around">
+            <a href="#" class="hover:text-gray-300">Home</a>
+            <a href="#" class="hover:text-gray-300">About Us</a>
+            <a href="#" class="hover:text-gray-300">Project Architecture</a>
+            <a href="#" class="hover:text-gray-300">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8 px-4 sm:px-8">
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4 text-center">Upload Image</h2>
+            <form method="POST" enctype="multipart/form-data" class="text-center">
+                <input type="file" name="file" class="border border-gray-300 p-2 mb-2 w-full sm:w-auto inline-block">
+                <input type="submit" name="upload" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
