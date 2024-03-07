@@ -9,45 +9,73 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
 
-    <nav class="bg-gray-800 text-white py-4">
-        <ul class="flex justify-center">
-            <li class="text-2xl">Nutrilens</li>
-        </ul>
-    </nav>
+<nav class="bg-gray-800 text-white py-4 fixed top-0 w-full z-10">
+    <div class="flex justify-between px-4 items-center">
+        <div class="text-2xl text-center">Nutrilens</div>
+        <button class="lg:hidden" onclick="toggleSidebar()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+</nav>
 
-    <button onclick="window.location.href = '/';" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 ml-4">Home</button>
+<!-- Sidebar -->
+<aside id="sidebar" class="bg-gray-800 text-white py-4 h-screen w-48 fixed top-16 left-0 hidden lg:block">
+    <ul class="text-lg mt-8">
+        <li class="p-2 hover:bg-gray-700"><a href="/">Home</a></li>
+        <li class="p-2 hover:bg-gray-700"><a href="./about">About us</a></li>
+        <li class="p-2 hover:bg-gray-700"><a href="./architecture">Project Architecture</a></li>
+        <li class="p-2 hover:bg-gray-700"><a href="./contact">contact us</a></li>
+    </ul>
+</aside>
 
+<div class="content ml-0 sm:ml-48"> <!-- Adjusted to create space for the sidebar and match the top position of the navbar -->
     <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
         <div class="text-center">
             <h2 class="text-3xl font-bold mb-4">Result</h2>
             <img src="data:image/jpeg;base64,{{ image }}" alt="food image" class="mx-auto rounded-lg shadow-md mb-4">
-            <p id="food" class="text-xl sm:text-2xl font-semibold text-fuchsia">Your Food is {{food}}</p>
+            <p id="food" class="text-xl sm:text-2xl font-semibold text-fuchsia">The Food is {{ food }}</p>
         </div>
     </div>
 
     <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-        <h3 class="text-2xl font-bold mb-4">Nutrients in {{food}}:</h3>
+        <h3 class="text-2xl font-bold mb-4">Ingredients in {{ food }}</h3>
+        <p id="ingredients" class="">{{ data.foods[0].additionalDescriptions }}</p>
+        <p id="ingredients" class="">{{ data.foods[0].ingredients }}</p>
+    </div>
+
+    <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+        <h3 class="text-2xl font-bold mb-4">Nutrients in {{ food }}:</h3>
         <div class="overflow-x-auto">
             <table class="min-w-max w-full bg-white rounded-lg shadow-md">
                 <thead>
-                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">Nutrient Name</th>
-                        <th class="py-3 px-6 text-left">Value</th>
-                        <th class="py-3 px-6 text-left">Unit</th>
-                    </tr>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 px-6 text-left">Nutrient Name</th>
+                    <th class="py-3 px-6 text-left">Value</th>
+                    <th class="py-3 px-6 text-left">Unit</th>
+                </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light">
-                    {% for item in data['foods'][0]['foodNutrients'] %}
-                    <tr class="border-b border-gray-200 hover:bg-gray-100">
-                        <td class="py-3 px-6 text-left whitespace-nowrap">{{ item['nutrientName']}}</td>
-                        <td class="py-3 px-6 text-left">{{ item['value']}}</td>
-                        <td class="py-3 px-6 text-left">{{ item['unitName']}}</td>
-                    </tr>
-                    {% endfor %}
+                {% for item in data.foods[0].foodNutrients %}
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-6 text-left whitespace-nowrap">{{ item.nutrientName }}</td>
+                    <td class="py-3 px-6 text-left">{{ item.value }}</td>
+                    <td class="py-3 px-6 text-left">{{ item.unitName }}</td>
+                </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('hidden');
+    }
+</script>
 
 </body>
 </html>

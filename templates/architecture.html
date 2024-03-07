@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nutrilens</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body class="bg-gray-100 text-hotpink light-mode">
+
+<nav class="bg-gray-800 text-white py-4 fixed top-0 w-full z-10">
+    <div class="flex justify-between px-4 items-center">
+        <div class="text-2xl text-center">Nutrilens</div>
+        <button class="lg:hidden" onclick="toggleSidebar()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+</nav>
+
+<!-- Sidebar -->
+<aside id="sidebar" class="bg-gray-800 text-white py-4 h-screen w-48 fixed top-16 left-0 hidden lg:block">
+    <ul class="text-lg mt-8">
+        <li class="p-2 hover:bg-gray-700"><a href="/">Home</a></li>
+        <li class="p-2 hover:bg-gray-700"><a href="./about">About us</a></li>
+        <li class="p-2 hover:bg-gray-700"><a href="./architecture">Project Architecture</a></li>
+        <li class="p-2 hover:bg-gray-700"><a href="./contact">contact us</a></li>
+    </ul>
+</aside>
+
+<div class="content"> <!-- Adjusted to create space for the sidebar and match the top position of the navbar -->
+    <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+        <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+            <br><br>
+            <h2 class="text-3xl font-bold mb-4">Food Classification with DenseNet-161</h2>
+            <img src="" alt="foodbanner" class="mx-auto rounded-lg shadow-md mb-4">
+            <p>Recent growth in nutrition-related diseases globally has increased awareness of maintaining healthy nutritional habits. Healthy diets reduce the risks of reactions to food intolerance, weight problems, malnutrition, and some forms of cancer. Several applications exist that allow us to manually track what we eat and identify food items before consumption. However, these applications require previous experience with the food item for easy identification. An important question arises: <strong>what happens if we see a food item for the first time and need to identify it?</strong> Automated tools for food identification would be helpful in such cases.</p>
+            <br>
+            <p>The advent of Convolutional Neural Networks (CNN) and deep learning-based architectures has opened opportunities for the realization of such automatic tools. Indeed, a lot of progress has already been made in neural network-based image food classification. However, there are still gaps in the accuracy of existing methods. In response, we propose a technique based on a pretrained <strong>DenseNet-161</strong>, and we enhance class separability using successive augmentation of the data before feeding it to the model. To evaluate our proposed architecture, we have conducted experimental results on a benchmark dataset (Food-101). Our results show better performance with respect to existing approaches. Specifically, we obtained a Top-1 accuracy of 93.27% and Top-5 accuracy around 99.02% on the Food-101 dataset.</p>
+        </div>
+    
+        <!-- Inserted Table -->
+        <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+            <h3 class="text-2xl font-bold mb-4">Comparison with Existing Methods:</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-max w-full bg-white rounded-lg shadow-md">
+                    <thead>
+                        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Method</th>
+                            <th class="py-3 px-6 text-left">Top - 1</th>
+                            <th class="py-3 px-6 text-left">Top - 5</th>
+                            <th class="py-3 px-6 text-left">Publication</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 text-sm font-light">
+                        <tr>
+                            <td>HoG</td>
+                            <td>8.85</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>SURF BoW-1024</td>
+                            <td>33.47</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>SURF IFV-64</td>
+                            <td>44.79</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>SURF IFV-64 + Color Bow-64</td>
+                            <td>49.40</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>IFV</td>
+                            <td>38.88</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>RF</td>
+                            <td>37.72</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>RCF</td>
+                            <td>28.46</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>MLDS</td>
+                            <td>42.63</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>RFDC</td>
+                            <td>50.76</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>SELC</td>
+                            <td>55.89</td>
+                            <td>-</td>
+                            <td>CVIU2016</td>
+                        </tr>
+                        <tr>
+                            <td>AlexNet-CNN</td>
+                            <td>56.40</td>
+                            <td>-</td>
+                            <td>ECCV2014</td>
+                        </tr>
+                        <tr>
+                            <td>DCNN-FOOD</td>
+                            <td>70.41</td>
+                            <td>-</td>
+                            <td>ICME2015</td>
+                        </tr>
+                        <tr>
+                            <td>DeepFood</td>
+                            <td>77.4</td>
+                            <td>93.7</td>
+                            <td>COST2016</td>
+                        </tr>
+                        <tr>
+                            <td>Inception V3</td>
+                            <td>88.28</td>
+                            <td>96.88</td>
+                            <td>ECCVW2016</td>
+                        </tr>
+                        <tr>
+                            <td>ResNet-200</td>
+                            <td>88.38</td>
+                            <td>97.85</td>
+                            <td>CVPR2016</td>
+                        </tr>
+                        <tr>
+                            <td>WRN</td>
+                            <td>88.72</td>
+                            <td>97.92</td>
+                            <td>BMVC2016</td>
+                        </tr>
+                        <tr>
+                            <td>ResNext-101</td>
+                            <td>85.4</td>
+                            <td>96.5</td>
+                            <td><strong>Proposed</strong></td>
+                        </tr>
+                        <tr>
+                            <td>WISeR</td>
+                            <td>90.27</td>
+                            <td>98.71</td>
+                            <td>UNIUD2016</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DenseNet - 161</strong></td>
+                            <td><strong>93.26</strong></td>
+                            <td><strong>99.01</strong></td>
+                            <td><strong>Proposed</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+            <div class="transparent-box">
+                <h3 class="text-xl font-bold mb-2">Objectives</h3>
+                <p>>>> The primary goal is to **automatically classify food item images** that our model has not seen before. Beyond this, there are several possibilities for examining which regions/image components are important for making classifications, identifying new types of food as combinations of existing tags, building object detectors that can find similar objects in a full scene.</p>
+            </div>
+        </div>
+        
+        <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+            <div class="transparent-box">
+                <h3 class="text-xl font-bold mb-2">Approach</h3>
+                <h3 class="text-xl font-bold mb-2">Dataset</h3>
+                
+                <p>Deep learning-based algorithms require large dataset. Foodspoting's FOOD-101 dataset contains a number of different subsets of the full food-101 data. The idea is to make a more exciting simple training set for image analysis than CIFAR10 or MNIST. For this reason the data include massively downscaled versions of the images to enable quick tests. The data have been reformatted as HDF5 and specifically Keras HDF5Matrix which allows them to be easily read in. The file names indicate the contents of the file. For example</p>
+                <p>The file names indicate the contents of each file. For instance:</p>
+                <ul class="list-disc ml-8">
+                    <li><strong>food_c101_n1000_r384x384x3.h5</strong>: This file contains data with 101 categories represented, with n=1000 images, and a resolution of 384x384x3 (RGB, uint8).</li>
+                    <li><strong>food_test_c101_n1000_r32x32x1.h5</strong>: This file contains data from the validation set, with 101 categories represented, n=1000 images, and a resolution of 32x32x1 (float32 from -1 to 1).</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+            <div class="transparent-box">
+                <h3 class="text-xl font-bold mb-2">Model</h3>
+                <p>CNNs increasingly became powerful in large scale image recognition. Alexnet introduced in ILSVRC 2012 had 60 million parameters with 650,000 neurons, consisting of five convolutional layers. Those layers are followed by max pooling, globally connected layers and around 1000 softmax layers. With this inspiration, several other architectures were produced to provide better solution. Few of honourable mentions include ZFNet by Zeiler and Fergus, VGGNet by Simonyan et al., GoogLeNet (Inception-v1) by Szegedy et al and ResNet by He et al.</p>
+                <br>
+                <p>Dense Convolutional Network (DenseNet) [arixv 1608.0699] is another state-of-the-art CNN architecture inspired by the cascade-correlation learning architecture proposed in NIPS, 1989. The architecture connects each layer to every other layer in a feed-forward fashion. Whereas traditional convolutional networks with L layers have L connections—one between each layer and its subsequent layer—our network has L(L+1)/2 direct connections. For each layer, the feature-maps of all preceding layers are used as inputs, and its own feature-maps are used as inputs into all subsequent layers.</p>
+                <img src="" alt="img1" class="mx-auto rounded-lg shadow-md mb-4">
+                <img src="" alt="img2" class="mx-auto rounded-lg shadow-md mb-4">
+                <p><em>Why Densenet?</em></p>
+                <p>The advantages of DenseNet include its ability to alleviate the vanishing-gradient problem, strengthen feature propagation, encourage feature reuse, and substantially reduce the number of parameters.</p>
+                <img src="" alt="img3" class="mx-auto rounded-lg shadow-md mb-4">
+            </div>
+    
+            <h3 class="text-xl font-bold mb-2">Image Preprocessing</h3>
+            <br>
+            <p>PyTorch provides the API for loading and preprocessing raw images from the user. However, the dataset and the
+                images in the raw state as obtained aren't suitable for further processing. Consequently, successive
+                transformations are used to preprocess the training dataset. In our implementation, these transformations
+                include: Random rotation, Random resized crop, Random horizontal flip, ImageNet policy, and at the end
+                normalization.</p>
+            <br>
+            <p>These preprocessing transforms are used to mitigate the disparities in image properties due to different image
+                backgrounds; to help the model learn faster; and to improve the output accuracy.</p>
+            <br>
+            <p>Our transforms for both the training and test data are defined as follows:</p>
+    
+            <!-- Code Block for train_transforms -->
+            <div class="code bg-gray-200 rounded-lg p-4 mt-4 overflow-x-auto">
+                <pre><code>train_transforms = transforms.Compose([
+                        transforms.RandomRotation(30),
+                        transforms.RandomResizedCrop(224),
+                        transforms.RandomHorizontalFlip(),
+                        ImageNetPolicy(),
+                        transforms.ToTensor(),
+                        transforms.Normalize([0.485, 0.456, 0.406],[0.229, 0.224, 0.225])])
+                </code></pre>
+            </div>
+    
+            <!-- Code Block for test_transforms -->
+            <div class="code bg-gray-200 rounded-lg p-4 mt-4 overflow-x-auto">
+                <pre><code>test_transforms = transforms.Compose([
+                            transforms.Resize(255),
+                            transforms.CenterCrop(224),
+                            transforms.ToTensor(),
+                            transforms.Normalize([0.485, 0.456, 0.406],[0.229, 0.224, 0.225])])
+                </code></pre>
+            </div>
+            <br>
+            <P>An illustration is attached in this repository to depict the outcome of the transforms.</P>
+            <br>
+            <img src="" alt="img1" class="mx-auto rounded-lg shadow-md mb-4">
+            <img src="" alt="img2" class="mx-auto rounded-lg shadow-md mb-4">
+    
+            <h3 class="text-xl font-bold mb-2">Methodology</h3>
+            <br>
+            <p>We utilized a system having the following configuration to run the whole program:</p>
+            <div class="overflow-x-auto">
+                <div class="flex">
+                    <div class="w-full">
+                        <table class="bg-white rounded-lg shadow-md">
+                            <thead>
+                                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                    <th class="py-3 px-6 text-left">Vendor</th>
+                                    <th class="py-3 px-6 text-left">Processor</th>
+                                    <th class="py-3 px-6 text-left">Ram</th>
+                                    <th class="py-3 px-6 text-left">GPU</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-600 text-sm font-light">
+                                <tr>
+                                    <td class="py-3 px-6 text-left">Apple MacBook Pro</td>
+                                    <td class="py-3 px-6 text-left">M3 Pro</td>
+                                    <td class="py-3 px-6 text-left">18 Gb</td>
+                                    <td class="py-3 px-6 text-left">N18-core GPU</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <p>The machine spent 4-5 days to process the complicated network structure and complete the learning task. We implemented our image classsification pipeline using the latest edition of PyTorch (as at 02/03/2024). We applied the transfer learning method to our model which by using the pretrained Densenet-161 model in the following steps:</p>
+            <ul class="list-disc ml-8">
+                <li>At first, with a pretrained DenseNet-161 model, we loaded a checkpoint. The checkpoints file contains all the tensors after months of training with the ImageNet dataset.</li>
+                <li>Secondly, we redefined the classifier part of the model (i.e., <code>model.Classifier()</code>) to fit our number of output classes (101) as derived from our input data classes. Note: ImageNet trained networks have 1001 output classes by default.</li>
+            </ul>
+            <br>
+            <!-- Code Block for train_transforms -->
+            <div class="code bg-gray-200 rounded-lg p-4 mt-4 overflow-x-auto">
+                <pre><code>classifier = nn.Sequential(OrderedDict([
+                    ('fc1', nn.Linear(1024, 500)),
+                    ('relu', nn.ReLU()),
+                    ('fc2', nn.Linear(500, 101)),
+                    ('output', nn.LogSoftmax(dim=1))
+                    ]))
+                </code></pre>
+            </div>
+            <br>
+            <p>To evaluvate our model, we split the dataset into training, test and validation in a ratio 8:1:1 i.e the 80% of the whole dataset was used for training and the rest equally split into test and validation. We obtained the model training and test error. To improve our model classification accuracy and reduce the derived error values, we fine tuned the network parameters using Adam optimizer as defined below. This optimizer requires that we set the learning rate and learning rate decay parameters. To achieve the minimum loss, we have spent several days tweaking these parameters to find a sweet spot (Patience is always needed in deep learning based applications, and our case was not an exception). Other tunings we performed include the use of dropouts that are used to prevent overfitting. Here is a code snippet showing the specific betas for our Adam optimizer:</p>
+            <div class="code bg-gray-200 rounded-lg p-4 mt-4 overflow-x-auto">
+                <pre><code>optimizer = optim.Adam(model.classifier.parameters(), lr=0.001, betas=[0.9, 0.999])```</code></pre>
+            </div>
+            
+            <h3 class="text-xl font-bold mb-2">Result</h3>
+            <p>Here is an illustration depicting the progress due to heavy augmentation and overall accuracy achieved from the model.</p>
+            <img src="" alt="img1" class="mx-auto rounded-lg shadow-md mb-4">
+            <img src="" alt="img2" class="mx-auto rounded-lg shadow-md mb-4">
+    
+            <h3 class="text-xl font-bold mb-2">Future Work</h3>
+            <br>
+            <p>This work continues, and we intend to implement the following in the coming weeks/months:</p>
+            <ul class="list-disc ml-8">
+                <li>Mobile application for automatic food identification.</li>
+                <li>Secondly, we redefined the classifier part of the model (i.e., <code>model.Classifier()</code>) to fit our number of output classes (101) as derived from our input data classes. Note: ImageNet trained networks have 1001 output classes by default.</li>
+            </ul>
+    </div>
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('hidden');
+    }
+</script>
+
+</body>
+</html>

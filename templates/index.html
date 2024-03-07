@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Nutrilens</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
@@ -7,25 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
-<body class="bg-gray-100 text-hotpink">
+<body class="bg-gray-100 text-hotpink light-mode">
 
-    <nav class="bg-gray-800 text-white text-center py-4">
-        <div class="flex justify-around">
-            <a href="#" class="hover:text-gray-300">Home</a>
-            <a href="#" class="hover:text-gray-300">About Us</a>
-            <a href="#" class="hover:text-gray-300">Project Architecture</a>
-            <a href="#" class="hover:text-gray-300">Contact Us</a>
-        </div>
-    </nav>
-
-    <div class="container mx-auto mt-8 px-4 sm:px-8">
-        <div class="mt-8">
-            <h2 class="text-2xl font-bold mb-4 text-center">Upload Image</h2>
-            <form method="POST" enctype="multipart/form-data" class="text-center">
-                <input type="file" name="file" class="border border-gray-300 p-2 mb-2 w-full sm:w-auto inline-block">
-                <input type="submit" name="upload" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            </form>
-        </div>
+<nav class="bg-gray-800 text-white py-4 fixed top-0 w-full z-10">
+    <div class="flex justify-between px-4 items-center">
+        <div class="text-2xl text-center">Nutrilens</div>
+        <button class="lg:hidden" onclick="toggleSidebar()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
     </div>
+</nav>
+
+<!-- Sidebar -->
+<aside id="sidebar" class="bg-gray-800 text-white py-4 h-screen w-48 fixed top-16 left-0 hidden lg:block">
+    <ul class="text-lg mt-8">
+        <li class="p-2 hover:bg-gray-700"><a href="/">Home</a></li>
+        <li class="p-2 hover:bg-gray-700"><a href="./about">About us</a></li>
+        <li class="p-2 hover:bg-gray-700"><a href="./architecture">Project Architecture</a></li>
+        <li class="p-2 hover:bg-gray-700"><a href="./contact">contact us</a></li>
+    </ul>
+</aside>
+
+<div class="container mx-auto mt-8 px-4 sm:px-8">
+    <div class="mt-8">
+        <h2 class="text-2xl font-bold mb-4 text-center">Upload Image</h2>
+        <form method="POST" enctype="multipart/form-data" class="text-center">
+            <input type="file" name="file" class="border border-gray-300 p-2 mb-2 w-full sm:w-auto inline-block">
+            <input type="submit" name="upload" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('hidden');
+    }
+</script>
+
+<div class="content ml-0 lg:ml-48"> <!-- Adjusted to create space for the sidebar and match the top position of the navbar -->
+    <!-- Your content goes here -->
+</div>
+
 </body>
 </html>
