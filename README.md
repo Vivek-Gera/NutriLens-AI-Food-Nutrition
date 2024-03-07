@@ -1,4 +1,4 @@
-# NutriLens-AI-Food-Nutrition: Automated Food Identification and Nutritional Analysis**
+# NutriLens-AI-Food-Nutrition: Automated Food Identification and Nutritional Analysis
 
 ![foodbanner](insert_your_image_url_here)
 
