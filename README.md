@@ -98,11 +98,11 @@ An illustration is attached in this repository to depict the outcome of the tran
 
 We utilized a system having the following configuration to run the whole program:
 
-|Vendor | Asus (RoG) |
+|Vendor | Aspple Macbook Pro |
 |--|--|
-| Processor  | Core I7  |
-| Ram  | 8 Gb  |
-| GPU | Nvidia GTX - 1050ti  |
+| Processor  | M3 Pro  |
+| Ram  | 18 Gb  |
+| GPU | N18-core GPU and 16-core Neural Engine |
 
 The machine spent 4-5 days to process the complicated network structure and complete the learning task. We implemented our image classsification pipeline using the latest edition of PyTorch (as at 19/08/2019). We applied the transfer learning method to our model which by using the pretrained Densenet-161 model in the following steps:
 
