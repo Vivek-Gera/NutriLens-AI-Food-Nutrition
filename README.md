@@ -130,9 +130,15 @@ optimizer = optim.Adam(model.classifier.parameters(), lr=0.001, betas=[0.9, 0.99
 <hr>
 Here is an illustration depicting the progress due to heavy augmentation and overall accuracy achieved from the model.
 
-![train](https://i.imgur.com/tiuM5OL.jpg)
+![train](https://github.com/Vivek-Gera/NutriLens-AI-Food-Nutrition/blob/main/Photos/7.png?raw=true)
 
-![result](https://i.imgur.com/pFUXNh0.jpg)
+![train](https://github.com/Vivek-Gera/NutriLens-AI-Food-Nutrition/blob/main/Photos/8.png?raw=true)
+
+![train](https://github.com/Vivek-Gera/NutriLens-AI-Food-Nutrition/blob/main/Photos/9.png?raw=true)
+
+![result](https://github.com/Vivek-Gera/NutriLens-AI-Food-Nutrition/blob/main/Photos/10.png?raw=true)
+
+![result](https://github.com/Vivek-Gera/NutriLens-AI-Food-Nutrition/blob/main/Photos/11.png?raw=true)
 
 ### Future work
 <hr>
@@ -148,5 +154,5 @@ This work continues, and we intend to implement the following in the coming week
 <hr>
 
 
-<strong>Prakhar Tripathi
-(@Prakhar998)</strong>
+<strong>Vivek Gera
+(@Vivek-Gera)</strong>
