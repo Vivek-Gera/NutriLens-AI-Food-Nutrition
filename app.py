@@ -2,16 +2,10 @@ import os
 import requests
 import base64
 from flask import Flask, render_template, request
-from flask_socketio import SocketIO
 
 app = Flask(__name__)
-socketio = SocketIO(app)
 
 from inference import get_flower_name
-
-@socketio.on('connect')
-def handle_connect():
-    print('Client connected')
 
 @app.route('/', methods=['GET', 'POST'])
 def hello_world():
@@ -31,7 +25,6 @@ def hello_world():
             data = response.json()
 
             print(file)
-            socketio.emit('result', {'food': food_name, 'data': data, 'image': encoded_image})
             return render_template('result.html', food=food_name, data=data, image=encoded_image)
         except:
             return render_template('index.html')
@@ -49,4 +42,4 @@ def contact():
     return render_template('contact.html')
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=os.getenv('PORT', 5000))
+    app.run(debug=True, port=os.getenv('PORT', 5000))
