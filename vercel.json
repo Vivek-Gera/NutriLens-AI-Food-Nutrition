@@ -1,11 +1,5 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "./app.py",
-            "runtime": "python3.7.9"
-        }
-    ],
     "routes": [
         {
             "src": "/(.*)",
