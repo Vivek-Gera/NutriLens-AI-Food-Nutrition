@@ -4,7 +4,7 @@ import streamlit as st
 from PIL import Image
 from inference import get_flower_name
 
-st.title("Food Image Classifier")
+st.title("Nutrilens")
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
