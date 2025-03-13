@@ -98,7 +98,7 @@ An illustration is attached in this repository to depict the outcome of the tran
 
 We utilized a system having the following configuration to run the whole program:
 
-|Vendor | Aspple Macbook Pro |
+|Vendor | Apple Macbook Pro |
 |--|--|
 | Processor  | M3 Pro  |
 | Ram  | 18 Gb  |
